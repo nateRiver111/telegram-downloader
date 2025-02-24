@@ -75,7 +75,7 @@ def createProgress(client: Client):
         # Only update download progress if the last update is 1 second old
         # : This avoid flood on networks that is more than 1MB/s speed
         now = time()
-        if download.last_update != 0 and (time() - download.last_update) < running:
+        if download.last_update != 0 and (time() - download.last_update) < 10:
             # Do not update message time from last_update is less than running download count
             return
         download.last_update = now
